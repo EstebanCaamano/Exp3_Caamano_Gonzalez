@@ -53,9 +53,10 @@ def crear(request):
         productosform=ProductosForm()
     return render(request, 'crear.html', {'productosform':productosform})
 
+
 @login_required
 def eliminar(request, id):
-    productoEliminado = Producto.objects.get(patente=id) #obtenemos un objeto por su id
+    productoEliminado = Producto.objects.get(id=id) 
     productoEliminado.delete()
     return redirect ('pagina3')
 
